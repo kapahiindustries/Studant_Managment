@@ -11,11 +11,15 @@
         <p>Don't have an account? <a (click)="openDialog()">Register Here!!</a></p>
         <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
             <div class="inputs">
-                <input type="text" placeholder="user name" name="email" formControlName="email" required
+                <input type="text" placeholder="User Name" name="email" formControlName="email" required
                     autocomplete="OFF">
                 <br>
-                <input type="password" placeholder="password" name="password" formControlName="password" required
+                <input type="Password" placeholder="password" name="password" formControlName="password" required
                     autocomplete="OFF">
+                <select placeholder="Role" name="role" formControlName="role_id" required>
+                    <option value="0">Admin</option>
+                    <option value="1">Student</option>
+                </select>
             </div>
             <p class="error" *ngIf="isError">User Not Found!</p>
             <br>

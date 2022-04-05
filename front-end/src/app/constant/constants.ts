@@ -8,6 +8,7 @@ export interface LoginModel {
         email: string;
         roll_number: string;
         class_name: string;
+        role_id: string;
     }
 }
 

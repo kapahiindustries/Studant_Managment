@@ -13,9 +13,15 @@ export class AppComponent {
 
   ngOnInit() {
     let token = localStorage.getItem('token');
+    let roleId = localStorage.getItem('role_id');
     if (token) {
       this.isAuthenticated = true;
-      this.router.navigateByUrl('/home');
+      if (roleId == "0") {
+        this.router.navigateByUrl('/home');
+      } else {
+        this.router.navigateByUrl('/courses')
+      }
+
     } else {
       this.isAuthenticated = false;
       this.router.navigateByUrl('/login');

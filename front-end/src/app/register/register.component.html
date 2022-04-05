@@ -58,6 +58,8 @@
                         <mat-hint align="end" *ngIf="registerForm.controls['password'].touched">
                             <span *ngIf="registerForm.controls['password'].errors?.required">Password is
                                 required.</span>
+                            <span *ngIf="registerForm.controls['password'].errors?.minlength">Minimum length should be
+                                6</span>
                         </mat-hint>
                     </mat-form-field>
                 </div>

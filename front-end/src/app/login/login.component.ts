@@ -26,13 +26,17 @@ export class LoginComponent implements OnInit {
   constructor(private readonly router: Router, private readonly authService: AuthService, private readonly dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.loginForm.patchValue({
+      role_id: 0
+    })
   }
 
   public login() {
     this.isCreating = true;
+    const { role_id } = this.loginForm.value;
     this.loginForm.patchValue({
-      role_id: 0
-    });
+      role_id: parseInt(role_id)
+    })
     const data = this.loginForm.value;
     this.authService.login(data).subscribe((result: LoginModel) => {
       if (result.success) {
@@ -40,8 +44,14 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', result.token);
         localStorage.setItem('name', `${result.profile.name} ${result.profile.last_name}`);
         localStorage.setItem('email', `${result.profile.email}`);
+        localStorage.setItem('role_id', `${result.profile.role_id}`);
 
-        this.router.navigateByUrl('/home');
+        if (result.profile.role_id === '1') {
+          this.router.navigateByUrl('/courses');
+        } else {
+          this.router.navigateByUrl('/home');
+        }
+
         this.isCreating = false;
       } else {
         this.isError = true;
@@ -49,6 +59,7 @@ export class LoginComponent implements OnInit {
       }
     },
       (error) => {
+        this.isError = true;
         this.isCreating = false;
         console.log("error", error)
       });

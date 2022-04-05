@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
     name: new FormControl('', [Validators.required, Validators.pattern(this.nameRegEx)]),
     last_name: new FormControl('', [Validators.required, Validators.pattern(this.nameRegEx)]),
     email: new FormControl('', [Validators.required, Validators.pattern(this.emailRegEx)]),
-    password: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     role_id: new FormControl('')
   });
 

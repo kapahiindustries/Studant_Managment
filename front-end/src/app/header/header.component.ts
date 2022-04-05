@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   name = '';
   email = '';
+  roleId = '';
 
   constructor(private readonly router: Router) { }
 
@@ -17,6 +18,7 @@ export class HeaderComponent implements OnInit {
     if (localStorage.getItem('name')) {
       this.name = JSON.parse(JSON.stringify(localStorage.getItem('name')));
       this.email = JSON.parse(JSON.stringify(localStorage.getItem('email')));
+      this.roleId = JSON.parse(JSON.stringify(localStorage.getItem('role_id')));
     }
 
   }
