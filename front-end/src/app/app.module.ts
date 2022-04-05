@@ -41,6 +41,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgModule } from '@angular/core';
 import { RegisterComponent } from './register/register.component';
 import { RouterModule } from '@angular/router';
+import { VimeoService } from '../app/services/vimeo.service';
+import { VimeoUrlPipe } from '../app/services/vimeo-url.pipe';
 import { WarningComponent } from './warning/warning.component';
 
 @NgModule({
@@ -54,7 +56,8 @@ import { WarningComponent } from './warning/warning.component';
     AddUserComponent,
     DeleteUserComponent,
     CoursesComponent,
-    WarningComponent
+    WarningComponent,
+    VimeoUrlPipe
   ],
   imports: [
     BrowserModule,
@@ -91,7 +94,7 @@ import { WarningComponent } from './warning/warning.component';
     RouterModule,
     HttpClientModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true }],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true }, VimeoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

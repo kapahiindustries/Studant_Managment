@@ -1,3 +1,11 @@
 <app-header></app-header>
 
-<p>courses works!</p>
+<div fxLayout.xs="column" fxLayoutAlign="space-between">
+    <div fxFlex.xs="100%" fxFlex="45%" fxLayoutAlign="left">
+        <div *ngFor="let video of videos | async" class="video">
+            <p>{{video.title}}</p>
+            <iframe [src]="video.url | vimeoUrl" width="500" height="300" frameborder="0" webkitallowfullscreen
+                mozallowfullscreen allowfullscreen></iframe>
+        </div>
+    </div>
+</div>

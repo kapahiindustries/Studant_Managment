@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
+import { VimeoService } from '../services/vimeo.service';
 
 @Component({
   selector: 'app-courses',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoursesComponent implements OnInit {
 
-  constructor() { }
+  user: string = 'user171569630';
 
-  ngOnInit(): void {
+  videos: any;
+  albums: any;
+
+  constructor(private _vimeoService: VimeoService) { }
+
+  ngOnInit() {
+    this.videos = this._vimeoService.getVideos(this.user);
+
+    this.videos.subscribe((x: any) => {
+      console.log('videos');
+      console.log(x);
+    })
   }
 
 }

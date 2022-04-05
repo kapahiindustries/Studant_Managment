@@ -10,7 +10,8 @@ export class Interceptor implements HttpInterceptor {
         const authToken = localStorage.getItem('token');
         const headersItem = new HttpHeaders()
             .set('content-type', 'application/json')
-            .set('Authorization', `Bearer ${authToken}`);
+            .set('Authorization', `Bearer ${authToken}`)
+            .set('Access-Control-Allow-Origin', '*')
 
         const customReq = request.clone({ headers: headersItem });
 
