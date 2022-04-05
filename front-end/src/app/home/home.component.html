@@ -1,0 +1,94 @@
+<app-header></app-header>
+
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutAlign.xs="start" fxLayoutAlign.sm="start"
+    class="admin-mgmt-header" fxLayout.xs="column" fxLayout.sm="column"
+    [ngClass]="{'disable-operations': isLoading === true}">
+    <div class="search-form">
+        <h1>Student Management</h1>
+    </div>
+    <div class="users-btn">
+        <button mat-raised-button color="primary" (click)="openDialog()">Add New Student</button>
+    </div>
+</div>
+<div class="tbl-data user">
+    <table mat-table [dataSource]="dataSource" matSort matSortActive="name" matSortDirection="asc"
+        aria-describedby="dataSource" matSortDisableClear>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name" class="name"
+                id="name">
+                First Name
+            </th>
+            <td mat-cell *matCellDef="let element" class="name">
+                {{element.name}}
+            </td>
+        </ng-container>
+
+        <!-- Last Name Column -->
+        <ng-container matColumnDef="last_name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by last_name"
+                class="email" id="last_name">
+                Last Name </th>
+            <td mat-cell *matCellDef="let element" class="email">
+                {{element.last_name}}
+            </td>
+        </ng-container>
+
+        <!-- CLass Name Column -->
+        <ng-container matColumnDef="class_name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by class_name"
+                class="role" id="class_name">
+                Class
+            </th>
+            <td mat-cell *matCellDef="let element" class="role">
+                {{ element.class_name}}
+            </td>
+        </ng-container>
+
+        <!-- EMail Column -->
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by email" class="role"
+                id="email">
+                Email
+            </th>
+            <td mat-cell *matCellDef="let element" class="role">
+                {{ element.email}}
+            </td>
+        </ng-container>
+
+        <!-- Roll Number Column -->
+        <ng-container matColumnDef="roll_number">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by roll_number"
+                class="role" id="roll_number">
+                Roll Number
+            </th>
+            <td mat-cell *matCellDef="let element" class="role">
+                {{ element.roll_number}}
+            </td>
+        </ng-container>
+
+        <!-- Action Column -->
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef class="action-btns" id="action-btns"> </th>
+            <td mat-cell *matCellDef="let element" class="action-btns">
+
+                <button mat-icon-button aria-label="icon button with edit" matTooltip="Edit"
+                    (click)="userEditDialog(element)">
+                    <mat-icon matPrefix color="accent">edit</mat-icon>
+                </button>
+
+                <button mat-icon-button aria-label="icon button with delete" class="delete-btn" matTooltip="Delete"
+                    (click)="userSingleDeleteDialog(element)">
+                    <mat-icon matPrefix>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements"
+        class="user-pagination">
+    </mat-paginator>
+</div>

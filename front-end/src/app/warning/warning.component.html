@@ -1,0 +1,9 @@
+<mat-dialog-content>
+    <section class="warning-outer" [ngClass]="data.class" fxLayout="row" fxLayoutAlign="center center">
+        <mat-icon *ngIf="data.class === 'success'">done</mat-icon>
+        <mat-icon *ngIf="data.class === 'warning'">error</mat-icon>
+    </section>
+    <section class="warning-content">
+        <mat-label value="Oliver Smith">{{data.message}}</mat-label>
+    </section>
+</mat-dialog-content>

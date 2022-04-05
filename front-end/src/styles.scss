@@ -1,0 +1,81 @@
+
+html, body { height: 100%; }
+body { margin: 0; overflow: hidden; background: var(--app-body-bg-color);
+  @media (max-width: 959px) {
+    overflow-y: auto;
+  }
+}
+
+app-root, app-error {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+app-user, app-topics, app-permissions, app-indicators, app-datasets, app-content, app-statuscheck, app-header-logo, app-header-menu, app-homepage-slider, app-footer-menu, app-left-navigation, app-homepage-feature-links, app-background-image, app-about-region, app-email-configuration, app-upload-datasets, app-edit-indicator-component, app-edit-header-menu, app-add-header-menu, app-edit-slider-card, app-edit-feature-links, app-add-new-section, app-add-new-card {
+  height: 100%;
+  min-height: 0;
+  @media (max-width:959px) {
+    height: auto;
+    min-height: initial;
+  }
+}
+.mat-form-field-appearance-outline .mat-form-field-wrapper {
+  margin: 0;
+  padding: 0;
+}
+//media query.
+@media(max-width: 559px){
+  .logo {
+    img {
+      max-width: 10rem;
+    }
+  }
+}
+
+.mat-dialog-actions > {
+  button.mat-button-base + button.mat-button-base {
+    margin-left: 1rem;
+  }
+}
+
+.custom-dialog-container {
+  position: relative;
+  overflow: auto;
+  width: 45rem;
+  max-width: 100% !important;
+  @media (max-width: 767px) {
+    width: 90%;
+  }
+}
+.user-history-dialog {
+  max-width: 90%;
+  width: 90%;
+}
+.custom-dialog-container-small {
+  position: relative;
+  //overflow: auto;
+  width: 35rem;
+  max-width: 100% !important;
+  overflow: visible;
+  .mat-dialog-container {
+    position: relative;
+    overflow: visible;
+  }
+  @media (max-width: 767px) {
+    width: 90%;
+  }
+}
+.default-image-modal {
+  .mat-dialog-container {
+    max-width: 100%;
+    position: relative;
+    width: 950px;
+  }
+}
+.tbl-data.user table > thead, .tbl-data.tbl-user-history table > thead, .tbl-data.dataset table > thead, .tbl-data.status-check table > thead {
+  background: var(--table-header);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}

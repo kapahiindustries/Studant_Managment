@@ -1,0 +1,92 @@
+<h2 mat-dialog-title>Edit Student</h2>
+<form [formGroup]="editStudentForm" (ngSubmit)="editStudent()" novalidate>
+    <mat-dialog-content>
+        <div fxLayout.xs="column" fxLayoutAlign="space-between">
+            <div fxFlex.xs="100%" fxFlex="45%" fxLayoutAlign="left">
+                <mat-form-field class="full-width" appearance="standard">
+                    <mat-label>First Name</mat-label>
+                    <input matInput placeholder="Enter First Name" [maxlength]="maxChar" name="firstname"
+                        formControlName="name" required autocomplete="off">
+                    <mat-hint align="end" *ngIf="editStudentForm.controls['name'].touched">
+                        <span *ngIf="editStudentForm.controls['name'].errors?.required">First Name is
+                            required.</span>
+                        <span *ngIf="editStudentForm.controls['name'].errors?.pattern">Leading/trailing whitespaces
+                            not
+                            allowed.
+                        </span>
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+            <div fxFlex.xs="100%" fxFlex="45%">
+                <mat-form-field class="full-width" appearance="standard">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput placeholder="Enter Last Name" [maxlength]="maxChar" name="last_name"
+                        formControlName="last_name" required autocomplete="off">
+                    <mat-hint align="end" *ngIf="editStudentForm.controls['last_name'].touched">
+                        <span *ngIf="editStudentForm.controls['last_name'].errors?.required">Last Name is
+                            required.</span>
+                        <span *ngIf="editStudentForm.controls['last_name'].errors?.pattern">Leading/trailing whitespaces
+                            not
+                            allowed.
+                        </span>
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout.xs="column" fxLayoutAlign="space-between">
+            <div fxFlex.xs="100%" fxFlex="45%">
+                <mat-form-field class="full-width" appearance="standard">
+                    <mat-label>Mail Id</mat-label>
+                    <input matInput (keydown.space)="$event.preventDefault();" [maxlength]="maxChar"
+                        placeholder="Enter Mail Id" name="Mail Id" formControlName="email" required autocomplete="off"
+                        #email>
+                    <mat-hint align="end" *ngIf="editStudentForm.controls['email'].touched">
+                        <span *ngIf="editStudentForm.controls['email'].errors?.required">
+                            Mail Id is required.
+                        </span>
+                        <span *ngIf="editStudentForm.controls['email'].errors?.pattern">
+                            Mail Id is not valid.
+                        </span>
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+            <div fxFlex.xs="100%" fxFlex="45%">
+                <mat-form-field class="full-width" appearance="standard">
+                    <mat-label>Class</mat-label>
+                    <input matInput placeholder="Enter Class Name" [maxlength]="maxChar" name="class_name"
+                        formControlName="class_name" required autocomplete="off">
+                    <mat-hint align="end" *ngIf="editStudentForm.controls['class_name'].touched">
+                        <span *ngIf="editStudentForm.controls['class_name'].errors?.required">Class is required.</span>
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout.xs="column" fxLayoutAlign="space-between">
+            <div fxFlex.xs="100%" fxFlex="45%">
+                <mat-form-field class="full-width" appearance="standard">
+                    <mat-label>Roll Number</mat-label>
+                    <input matInput (keydown.space)="$event.preventDefault();" [maxlength]="maxChar"
+                        placeholder="Enter Roll Number" name="roll_number" formControlName="roll_number" required
+                        autocomplete="off" #email>
+                    <mat-hint align="end" *ngIf="editStudentForm.controls['roll_number'].touched">
+                        <span *ngIf="editStudentForm.controls['roll_number'].errors?.required">
+                            Roll Number is required.
+                        </span>
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="center">
+        <button type="button" mat-stroked-button color="primary" (click)="closeDialog()">Cancel</button>
+        <button type="submit" [disabled]="!editStudentForm.valid || isCreating" cdkFocusInitial mat-raised-button
+            color="primary">
+            <span *ngIf="!isCreating">
+                Edit Student
+            </span>
+            <span *ngIf="isCreating">
+                Editing...
+            </span>
+        </button>
+    </mat-dialog-actions>
+</form>

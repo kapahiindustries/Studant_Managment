@@ -1,0 +1,36 @@
+.warning-outer {
+    border-radius: 50%;
+    color: white;
+    height: 5rem;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: translate(-50%, -50%);
+    width: 5rem;
+    .mat-icon {
+        align-items: center;
+        display: flex;
+        font-size: 3rem;
+        justify-content: center;
+    }
+}
+.warning-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+    mat-label {
+        font-weight: 500;
+        font-size: 1.2rem;
+    }
+}
+
+.success {
+    background: #00A042;
+}
+.warning {
+    background: #fecf0a;
+}
+.danger {
+    background: red;
+}

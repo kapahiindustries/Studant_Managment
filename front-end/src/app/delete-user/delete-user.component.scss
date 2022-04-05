@@ -1,0 +1,30 @@
+.selection-outer {
+    padding: 0 5rem;
+    mat-label {
+        font-weight: 500;
+    }
+}
+.popup-close-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+h2 {
+    text-align: center;
+}
+.info-text {
+    font-size: 1.2rem;
+    margin: 1rem 0 1rem 0.3rem;
+}
+::ng-deep {
+    .info-text mat-checkbox .mat-checkbox-layout {
+        white-space: normal;
+    }
+    .info-text .mat-checkbox-inner-container {
+        margin-top: 5px;
+    }
+    .mat-checkbox-label small {
+        margin-left: 0;
+        opacity: inherit;
+    }
+}

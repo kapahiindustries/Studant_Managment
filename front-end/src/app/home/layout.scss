@@ -1,0 +1,253 @@
+@mixin admin-layout {
+    .admin-mgmt-header {
+        box-shadow: 2px 2px 5px rgb(109 105 105 / 15%);
+        background: var(--primary-text-color);
+        padding: 0.5rem 1rem;
+        position: relative;
+        min-height: 75px;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        @media(max-width: 959px){
+            min-height: inherit;
+        }
+        h1 {
+            align-items: center;
+            display: flex;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 0;
+        }
+        button + button {
+            margin-left: 1rem;
+            @media(max-width: 959px){
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+    }
+    .admin-mgmt-container {
+        height: 100%;
+        min-height: 0;
+    }
+    .admin-mgmt-body {
+        height: calc(100% - 75px);
+        background: var(--app-body-bg-color);
+        @media(max-width: 959px){
+            height: auto;
+        }
+    }
+    textarea {
+        resize: none;
+        min-height: 4rem;
+    }
+    .left-panel {
+        background: var(--primary-text-color);
+        box-shadow: 4px 4px 25px rgb(109 105 105 / 15%);
+        box-sizing: border-box;
+        position: relative;
+        /*background: var(--primary-text-color) url(../../assets/images/navbar-img-bg.jpg) no-repeat bottom;*/
+        background-size: cover;
+        h3 {
+            background: var(--table-header);
+            border-right: 5px solid var(--primary-color);
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+        }
+        .left-panel-inner {
+            background-color: var(--left-panerl-inner-bg);
+            height: 100%;
+            &::before {
+                background: var(--primary-color);
+                bottom: 0;
+                clip-path: polygon(0 70%, 56% 80%, 100% 50%, 100% 100%, 61% 100%, 35% 100%, 0 100%);
+                content: '';
+                height: 22%;
+                opacity: 0.5;
+                position: absolute;
+                width: 100%;
+                z-index: 100;
+                @media(max-width: 959px){
+                    display: none;
+                }
+            }
+        }
+    }
+    .right-panel {
+        padding: 1rem;
+        background: var(--app-body-bg-color);
+        box-sizing: border-box;
+        @media(max-width: 959px){
+            overflow-y: hidden;
+            height: 100%;
+            flex: 0 0 100% !important;
+        }
+        .content-section {
+            h1 {
+                font-size: 1rem;
+                font-weight: 500;
+                margin-bottom: 0;
+            }
+            h2 {
+                font-size: 0.85rem;
+                font-weight: 500;
+                margin-bottom: 0;
+            }
+            h3 {
+                font-size: 0.75rem;
+            }
+        }
+        .no-data-added {
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 8rem 0;
+        }
+    }
+    
+    .search-form {
+        box-sizing: border-box;
+        width: 50%;
+        h1 {
+            display: inline-flex;
+            margin-right: 1rem;
+            width: 40%;
+        }
+        .user-search {
+            width: 45%;
+            margin-left: 9%;
+        }
+        @media(max-width: 959px){
+            width: 100%;
+            margin-bottom: 1rem;
+            h1 {
+                margin: 0;
+                width: 100%;
+            }
+            .user-search {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+    }
+    .filer-role-section {
+        padding: 0.5rem 1rem;
+        box-sizing: border-box;
+        h1 {
+            display: inline-flex;
+            margin-right: 1rem;
+        }
+    }
+    .tbl-data {
+        height: 100%;
+        overflow-y: auto;
+        @media(max-width: 959px){
+            overflow-x: auto;
+            width: 59rem;
+        }
+    }
+    .tbl-data table {
+        width: 100%;
+        background: transparent;
+    }
+    .tbl-data table .mat-header-cell {
+        color: rgba(black, 0.87);
+        font-size: 0.9rem;
+    }
+    th.mat-header-cell, td.mat-cell {
+        align-items: center;
+        display: flex;
+        min-height: 56px;
+        border-bottom: 0;
+    }
+    .tbl-data table tr.mat-row:nth-child(even) {
+        background: #fff1b5;
+    }
+    .tbl-data .checkbox {
+        flex: 0 0 3rem;
+        padding: 0 0 0 1rem;
+    }
+    .tbl-data .name {
+        margin-left: 2rem;
+        flex: 0 0 20rem;
+        padding: 0 1rem 0 0;
+        word-break: break-word;
+    }
+    .tbl-data .email {
+        flex: 0 0 15rem;
+        word-break: break-word;
+        padding-right: 1rem;
+    }
+    .tbl-data .role {
+        flex: 0 0 15rem;
+    }
+    .tbl-data .action-btns {
+        flex: 0 0 15rem;
+    }
+    .tbl-data mat-row, mat-header-row, mat-footer-row {
+        margin-bottom: 0.5rem;
+        background: rgba(210,210,210, 1);
+        border: 1px solid rgba(210,210,210, 1);
+    }
+    .tbl-data thead mat-row, mat-header-row, mat-footer-row {
+        margin-bottom: 0;
+        background: rgba(210,210,210, 1);
+        border: 1px solid rgba(210,210,210, 1);
+    }
+    .tbl-data mat-row:nth-child(odd) {
+        background: #ffffff;
+    }
+    .tbl-data mat-row:nth-child(even) {
+        background: #efefef;
+    }
+    .user-pagination.mat-paginator, .user-pagination .mat-paginator-container {
+        color: rgba(black, 0.87);
+        font-size: 0.8rem;
+    }
+    .delete-btn {
+        color: var(--primary-red);
+    }
+}
+.done {
+    color: var(--table-header-gradient-color-shade-3);
+  }
+.close {
+    color: var(--primary-red);
+}
+.update-btns {
+    padding: 0 1rem 1rem 1rem;
+    margin-top: -1rem;
+}
+.footer-btns {
+    padding: 1rem 0;
+    button {
+        min-width: 7rem;
+    }
+    button + button {
+        margin-left: 1rem;
+    }
+}
+::ng-deep .content-section .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    background: var(--primary-text-color);
+    border-radius: 0.4rem;
+    margin: 0.5rem 0;
+    resize: none;
+}
+
+form {
+    width: 100%;
+}
+
+.mat-option.mat-active {
+    background: none!important;
+}
+
+.error {
+    color: red;
+}
+
+.disable-pointer-events {
+    cursor: not-allowed!important;
+    pointer-events: none;
+  }
