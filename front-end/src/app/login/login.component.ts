@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { AuthService } from '../services/auth-service';
 import { LoginModel } from '../constant/constants';
+import { MatDialog } from '@angular/material/dialog';
+import { RegisterComponent } from '../register/register.component';
 import { Router } from '@angular/router';
 
 @Component({
@@ -21,7 +23,7 @@ export class LoginComponent implements OnInit {
     role_id: new FormControl('')
   });
 
-  constructor(private readonly router: Router, private readonly authService: AuthService) { }
+  constructor(private readonly router: Router, private readonly authService: AuthService, private readonly dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -50,6 +52,12 @@ export class LoginComponent implements OnInit {
         this.isCreating = false;
         console.log("error", error)
       });
+  }
+
+  public openDialog() {
+    const dialogRef = this.dialog.open(RegisterComponent, {
+      panelClass: 'custom-dialog-container', autoFocus: false, restoreFocus: false
+    });
   }
 
 }

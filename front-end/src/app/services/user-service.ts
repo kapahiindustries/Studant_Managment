@@ -36,14 +36,12 @@ export class UserService {
         return this.httpClient.post<AddStudentModel>(`${environment.baseUrl}${endPoint}`, postData);
     }
 
-
-
     /**
-    * method to edit student
-    */
-    public editStudent(postData: Object) {
-        const endPoint = 'Users/update';
-        return this.httpClient.post(`${endPoint}`, postData);
+   * method to register student
+   */
+    public register(postData: Object): Observable<AddStudentModel> {
+        const endPoint = 'api/register';
+        return this.httpClient.post<AddStudentModel>(`${environment.baseUrl}${endPoint}`, postData);
     }
 
     /**

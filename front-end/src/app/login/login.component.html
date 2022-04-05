@@ -8,7 +8,7 @@
 
     <div class="right">
         <h5>Login</h5>
-        <p>Don't have an account? Contact Admininstrator!!</p>
+        <p>Don't have an account? <a (click)="openDialog()">Register Here!!</a></p>
         <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
             <div class="inputs">
                 <input type="text" placeholder="user name" name="email" formControlName="email" required

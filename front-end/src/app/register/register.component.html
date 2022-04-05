@@ -1,9 +1,79 @@
-<div class="card">
-    <div class="card-header">
-        <h2>Register</h2>
-    </div>
-
-    <div class="card-body">
-
-    </div>
+<div class="register">
+    <h2 mat-dialog-title>Register</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="addStudent()" novalidate>
+        <mat-dialog-content>
+            <div fxLayout="column">
+                <div fxFlex.xs="100%" fxFlex="100%">
+                    <mat-form-field class="full-width" appearance="standard">
+                        <mat-label>First Name</mat-label>
+                        <input matInput placeholder="Enter First Name" [maxlength]="maxChar" name="firstname"
+                            formControlName="name" required autocomplete="off">
+                        <mat-hint align="end" *ngIf="registerForm.controls['name'].touched">
+                            <span *ngIf="registerForm.controls['name'].errors?.required">First Name is
+                                required.</span>
+                            <span *ngIf="registerForm.controls['name'].errors?.pattern">Leading/trailing whitespaces
+                                not
+                                allowed.
+                            </span>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+                <div fxFlex.xs="100%" fxFlex=100%>
+                    <mat-form-field class="full-width" appearance="standard">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput placeholder="Enter Last Name" [maxlength]="maxChar" name="last_name"
+                            formControlName="last_name" required autocomplete="off">
+                        <mat-hint align="end" *ngIf="registerForm.controls['last_name'].touched">
+                            <span *ngIf="registerForm.controls['last_name'].errors?.required">Last Name is
+                                required.</span>
+                            <span *ngIf="registerForm.controls['last_name'].errors?.pattern">Leading/trailing
+                                whitespaces
+                                not
+                                allowed.
+                            </span>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+                <div fxFlex.xs="100%" fxFlex="100%">
+                    <mat-form-field class="full-width" appearance="standard">
+                        <mat-label>Mail Id</mat-label>
+                        <input matInput (keydown.space)="$event.preventDefault();" [maxlength]="maxChar"
+                            placeholder="Enter Mail Id" name="Mail Id" formControlName="email" required
+                            autocomplete="off" #email>
+                        <mat-hint align="end" *ngIf="registerForm.controls['email'].touched">
+                            <span *ngIf="registerForm.controls['email'].errors?.required">
+                                Mail Id is required.
+                            </span>
+                            <span *ngIf="registerForm.controls['email'].errors?.pattern">
+                                Mail Id is not valid.
+                            </span>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+                <div fxFlex.xs="100%" fxFlex="100%">
+                    <mat-form-field class="full-width" appearance="standard">
+                        <mat-label>Password</mat-label>
+                        <input type="password" matInput placeholder="Enter Password" [maxlength]="maxChar"
+                            name="password" formControlName="password" required autocomplete="off">
+                        <mat-hint align="end" *ngIf="registerForm.controls['password'].touched">
+                            <span *ngIf="registerForm.controls['password'].errors?.required">Password is
+                                required.</span>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-dialog-content>
+        <mat-dialog-actions align="center">
+            <button type="button" mat-stroked-button color="primary" (click)="closeDialog()">Cancel</button>
+            <button type="submit" [disabled]="!registerForm.valid || isCreating" cdkFocusInitial mat-raised-button
+                color="primary">
+                <span *ngIf="!isCreating">
+                    Register
+                </span>
+                <span *ngIf="isCreating">
+                    Registering...
+                </span>
+            </button>
+        </mat-dialog-actions>
+    </form>
 </div>

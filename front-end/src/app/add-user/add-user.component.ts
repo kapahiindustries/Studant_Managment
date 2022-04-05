@@ -43,7 +43,7 @@ export class AddUserComponent implements OnInit {
     this.userService.addStudent(data).subscribe((result: AddStudentModel) => {
       if (result.success) {
         this.addUserDialogRef.close('success');
-        this.warningDialog(result.message, 'success');
+        this.warningDialog("Student Created Successfull", 'success');
       } else {
         this.isCreating = false;
       }
