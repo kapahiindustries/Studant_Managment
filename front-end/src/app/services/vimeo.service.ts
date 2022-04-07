@@ -8,7 +8,7 @@ export class VimeoService {
     constructor(private http: HttpClient) { }
 
     getVideos(user: any) {
-        return this.http.get('https://vimeo.com/api/v2/' + user + '/videos.json');
+        return this.http.get('../assets/vimeo.json');
 
     }
 

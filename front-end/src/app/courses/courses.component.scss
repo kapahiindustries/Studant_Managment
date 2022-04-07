@@ -1,3 +1,55 @@
 .video {
     margin: 2rem;
 }
+
+.video-container {
+    margin: 10px;
+    padding: 10px;
+    height: 600px;
+    background: #2f2b2b;
+    color: white;
+}
+
+.image {
+    height: 150px;
+    width: 100%;
+}
+
+.video-container-small {
+    cursor: pointer;
+    overflow-y: hidden;
+}
+
+.video-inner {
+    margin-top: 30px;
+    width: 200px;
+    padding: 10px;
+}
+
+.description {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+.video-outer {
+    display: inline-flex;
+}
+
+ul.images {
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    width: 100%;
+    margin-top: 80px;
+    padding-bottom: 10px;
+    overflow-x: auto;
+    cursor: pointer;
+  }
+  
+  ul.images li {
+    display: inline-block;
+    width: 250px;
+    padding: 10px;
+    height: 150px;
+  }
